@@ -14,6 +14,8 @@ const socket = io(server);
 socket.on('connection', client => {
     console.log('New client connected');
 
+    client.broadcast.emit('NEW_CLIENT_CONNECTED');
+
     client.on('CLIENT_MSG', data => {
         const payload = {
             message: data.message.split('').reverse().join('')

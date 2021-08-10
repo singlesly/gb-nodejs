@@ -21,6 +21,10 @@
         console.log('Successful connected to server');
     });
 
+    socket.on('NEW_CLIENT_CONNECTED', () => {
+        console.log('new client has been connected');
+    });
+
     socket.on('SERVER_MSG', data => {
         const span = document.createElement('span');
         span.innerHTML = data.message;
